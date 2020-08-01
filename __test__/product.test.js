@@ -1,6 +1,8 @@
 const supertest = require('supertest');
 const app = require('../index');
 
+const ProductModel = require('../models/product.model');
+
 describe('Test product API', function () {
 
     it('testing framework should works', function () {
@@ -22,5 +24,27 @@ describe('Test product API', function () {
         expect(response.body).toBeDefined();
         expect(response.body).toHaveProperty('data');
         done();
+    });
+
+    it('should add new product using post products endpoint', async function (done) {
+        const response = await supertest(app).post('/products').send({
+            name: 'Apple',
+            price: 100
+        });
+
+        expect(response.status).toBe(201);
+        expect(response.body).toBeDefined();
+        expect(response.body).toHaveProperty('data');
+        expect(response.body.data).toMatchObject({
+            name: 'Apple',
+            price: 100
+        });
+        done();
+    });
+
+    afterEach(async () => {
+        await ProductModel.deleteOne({
+            name: 'Apple'
+        });
     });
 });
