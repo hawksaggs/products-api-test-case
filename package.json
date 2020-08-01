@@ -1,0 +1,30 @@
+{
+  "name": "nodejs-test-case",
+  "version": "1.0.0",
+  "description": "Write test case in Nodejs using expressjs and jest",
+  "main": "index.js",
+  "scripts": {
+    "test": "",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "jest",
+    "supertest",
+    "test",
+    "testing",
+    "test",
+    "framework"
+  ],
+  "author": "Ayush Mittal",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.27"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
