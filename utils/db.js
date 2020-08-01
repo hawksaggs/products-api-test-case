@@ -14,11 +14,3 @@ mongoose.connect(process.env.MONGODB_URL, {
 mongoose.connection.on('error', (err) => {
     logError(err);
 });
-
-mongoose.connection.on('connecting', () => {
-    console.log('Database connecting');
-});
-
-mongoose.connection.on('connected', () => {
-    console.log('Database connected');
-});
